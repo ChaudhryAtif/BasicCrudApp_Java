@@ -39,7 +39,7 @@ public class UserController {
         return "User successfully deleted with id: " + id;
     }
 
-    @RequestMapping("/updateUser")
+    @RequestMapping("/update")
     @ResponseBody
     public String updateUser(long id, String email, String name) {
         try {
@@ -49,32 +49,6 @@ public class UserController {
             userDao.save(user);
         } catch (Exception ex) {
             return "Error updating the user: " + ex.toString();
-        }
-        return "User successfully updating with id: " + id;
-    }
-
-    @RequestMapping("/updateEmail")
-    @ResponseBody
-    public String updateEmail(long id, String email) {
-        try {
-            User user = new User(id);
-            user.setEmail(email);
-            userDao.save(user);
-        } catch (Exception ex) {
-            return "Error updating the user email: " + ex.toString();
-        }
-        return "User successfully updating with id: " + id;
-    }
-
-    @RequestMapping("/updateName")
-    @ResponseBody
-    public String updateName(long id, String name) {
-        try {
-            User user = new User(id);
-            user.setName(name);
-            userDao.save(user);
-        } catch (Exception ex) {
-            return "Error updating the user name: " + ex.toString();
         }
         return "User successfully updating with id: " + id;
     }
